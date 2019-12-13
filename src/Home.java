@@ -17,13 +17,14 @@ public class Home {
 		homeImags = new Image[] { tk.getImage(CommonWall.class
 				.getResource("Images/home.jpg")), };
 	}
-
+	// tushanchen wudi niupi
+	//hhhhhhhhhhh
 	public Home(int x, int y, TankClient tc) {// 构造函数，传递Home的参数并赋值
 		this.x = x;
 		this.y = y;
 		this.tc = tc; // 获得控制
 	}
-
+	//   bytedancer tianxiadiyi
 	public void gameOver(Graphics g) {
 
 		tc.tanks.clear();// 作清理页面工作
