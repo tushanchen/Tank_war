@@ -2,7 +2,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-
+// niupppppppppppGood
 public class MetalWall {
 	public static final int width = 30; // 设置金属墙的长宽静态全局参数
 	public static final int length = 30;
