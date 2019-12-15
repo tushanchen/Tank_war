@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.util.Random;
-
+// change in pc  hhhhhqqqqq
 public class GetBlood {
 	
 	public static final int width = 36;
@@ -12,7 +12,7 @@ public class GetBlood {
 
 	int step = 0; 
 	private boolean live = false;
-
+// lihaila tushanchen dapuren
 	private static Toolkit tk = Toolkit.getDefaultToolkit();
 	private static Image[] bloodImags = null;
 	static {
