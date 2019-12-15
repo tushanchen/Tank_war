@@ -5,6 +5,7 @@ import java.util.Map;
 // wei keyi o in github
 //wei ky o in pc in tushanchen in bullet.java
 // 第三次搞这个 in master in githunb
+//第四次搞事情咯 	in master in github
 public class Bullets {
 	public static  int speedX = 10;
 	public static  int speedY = 10; // 子弹的全局静态速度
