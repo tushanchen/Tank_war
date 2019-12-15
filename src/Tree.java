@@ -1,8 +1,8 @@
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-
-//设置界面树和丛林
+//ttttttt
+//芍
 public class Tree {
 	public static final int width = 30;
 	public static final int length = 30;
