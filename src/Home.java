@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-
+// xiugai inpc in tushanchen
 public class Home {
 	private int x, y;
 	private TankClient tc;
