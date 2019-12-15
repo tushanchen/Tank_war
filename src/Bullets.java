@@ -2,10 +2,10 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+// wei keyi o in github
 public class Bullets {
 	public static  int speedX = 10;
-	public static  int speedY = 10; // ×Óµ¯µÄÈ«¾Ö¾²Ì¬ËÙ¶È
+	public static  int speedY = 10; // å­å¼¹çš„å…¨å±€é™æ€é€Ÿåº¦
 
 	public static final int width = 10;
 	public static final int length = 10;
@@ -20,10 +20,9 @@ public class Bullets {
 
 	private static Toolkit tk = Toolkit.getDefaultToolkit();
 	private static Image[] bulletImages = null;
-	private static Map<String, Image> imgs = new HashMap<String, Image>(); // ¶¨ÒåMap¼üÖµ¶Ô£¬ÊÇ²»Í¬·½Ïò¶ÔÓ¦²»Í¬µÄµ¯Í·
-
+	private static Map<String, Image> imgs = new HashMap<String, Image>(); // enen ky 
 	static {
-		bulletImages = new Image[] { // ²»Í¬·½ÏòµÄ×Óµ¯
+		bulletImages = new Image[] { // ä¸åŒæ–¹å‘çš„å­å¼¹
 				tk.getImage(Bullets.class.getClassLoader().getResource(
 						"images/bulletL.gif")),
 
@@ -38,7 +37,7 @@ public class Bullets {
 
 		};
 
-		imgs.put("L", bulletImages[0]); // ¼ÓÈëMapÈİÆ÷
+		imgs.put("L", bulletImages[0]); // åŠ å…¥Mapå®¹å™¨
 
 		imgs.put("U", bulletImages[1]);
 
@@ -47,14 +46,14 @@ public class Bullets {
 		imgs.put("D", bulletImages[3]);
 
 	}
-
-	public Bullets(int x, int y, Direction dir) { // ¹¹Ôìº¯Êı1£¬´«µİÎ»ÖÃºÍ·½Ïò
+// haola ok 
+	public Bullets(int x, int y, Direction dir) { // æ„é€ å‡½æ•°1ï¼Œä¼ é€’positionå’Œdirection
 		this.x = x;
 		this.y = y;
 		this.diretion = dir;
 	}
 
-	// ¹¹Ôìº¯Êı2£¬½ÓÊÜÁíÍâÁ½¸ö²ÎÊı
+	// æ„é€ å‡½æ•°2ï¼Œæ¥å—å¦å¤–ä¸¤ä¸ªå‚æ•°
 	public Bullets(int x, int y, boolean good, Direction dir, TankClient tc) {
 		this(x, y, dir);
 		this.good = good;
@@ -65,7 +64,7 @@ public class Bullets {
 
 		switch (diretion) {
 		case L:
-			x -= speedX; // ×Óµ¯²»¶ÏÏò×ó½ø¹¥
+			x -= speedX; // å­å¼¹ä¸æ–­å‘å·¦è¿›æ”»
 			break;
 
 		case U:
@@ -73,7 +72,7 @@ public class Bullets {
 			break;
 
 		case R:
-			x += speedX; // ×Ö¶Î²»¶ÏÏòÓÒ
+			x += speedX; // å­—æ®µä¸æ–­å‘å³
 			break;
 
 		case D:
@@ -96,7 +95,7 @@ public class Bullets {
 			return;
 		}
 
-		switch (diretion) { // Ñ¡Ôñ²»Í¬·½ÏòµÄ×Óµ¯
+		switch (diretion) { // é€‰æ‹©ä¸åŒæ–¹å‘çš„å­å¼¹
 		case L:
 			g.drawImage(imgs.get("L"), x, y, null);
 			break;
@@ -115,10 +114,10 @@ public class Bullets {
 
 		}
 
-		move(); // µ÷ÓÃ×Óµ¯move()º¯Êı
+		move(); // è°ƒç”¨å­å¼¹move()å‡½æ•°
 	}
 
-	public boolean isLive() { // ÅĞ¶ÁÊÇ·ñ»¹»î×Å
+	public boolean isLive() { // åˆ¤è¯»æ˜¯å¦è¿˜æ´»ç€
 		return live;
 	}
 
@@ -126,16 +125,16 @@ public class Bullets {
 		return new Rectangle(x, y, width, length);
 	}
 
-	public boolean hitTanks(List<Tank> tanks) {// µ±×Óµ¯´òµ½Ì¹¿ËÊ±
+	public boolean hitTanks(List<Tank> tanks) {// å½“å­å¼¹æ‰“åˆ°å¦å…‹æ—¶
 		for (int i = 0; i < tanks.size(); i++) {
-			if (hitTank(tanks.get(i))) { // ¶ÔÃ¿Ò»¸öÌ¹¿Ë£¬µ÷ÓÃhitTank
+			if (hitTank(tanks.get(i))) { // å¯¹æ¯ä¸€ä¸ªå¦å…‹ï¼Œè°ƒç”¨hitTank
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public boolean hitTank(Tank t) { // µ±×Óµ¯´òµ½Ì¹¿ËÉÏ
+	public boolean hitTank(Tank t) { // å½“å­å¼¹æ‰“åˆ°å¦å…‹ä¸Š
 
 		if (this.live && this.getRect().intersects(t.getRect()) && t.isLive()
 				&& this.good != t.isGood()) {
@@ -143,43 +142,43 @@ public class Bullets {
 			BombTank e = new BombTank(t.getX(), t.getY(), tc);
 			tc.bombTanks.add(e);
 			if (t.isGood()) {
-				t.setLife(t.getLife() - 50); // ÊÜÒ»Á£×Óµ¯ÊÙÃü¼õÉÙ50£¬½ÓÊÜ4Ç¹¾ÍËÀ,×ÜÉúÃüÖµ200
+				t.setLife(t.getLife() - 50); // å—ä¸€ç²’å­å¼¹å¯¿å‘½å‡å°‘50ï¼Œæ¥å—4æªå°±æ­»,æ€»ç”Ÿå‘½å€¼200
 				if (t.getLife() <= 0)
-					t.setLive(false); // µ±ÊÙÃüÎª0Ê±£¬ÉèÖÃÊÙÃüÎªËÀÍö×´Ì¬
+					t.setLive(false); // å½“å¯¿å‘½ä¸º0æ—¶ï¼Œè®¾ç½®å¯¿å‘½ä¸ºæ­»äº¡çŠ¶æ€
 			} else {
 				t.setLive(false); 
 			}
 
 			this.live = false;
 
-			return true; // Éä»÷³É¹¦£¬·µ»Øtrue
+			return true; // å°„å‡»æˆåŠŸï¼Œè¿”å›true
 		}
-		return false; // ·ñÔò·µ»Øfalse
+		return false; // å¦åˆ™è¿”å›false
 	}
 
-	public boolean hitWall(CommonWall w) { // ×Óµ¯´òµ½CommonWallÉÏ
+	public boolean hitWall(CommonWall w) { // å­å¼¹æ‰“åˆ°CommonWallä¸Š
 		if (this.live && this.getRect().intersects(w.getRect())) {
 			this.live = false;
-			this.tc.otherWall.remove(w); // ×Óµ¯´òµ½CommonWallÇ½ÉÏÊ±ÔòÒÆ³ı´Ë»÷ÖĞÇ½
+			this.tc.otherWall.remove(w); // å­å¼¹æ‰“åˆ°CommonWallå¢™ä¸Šæ—¶åˆ™ç§»é™¤æ­¤å‡»ä¸­å¢™
 			this.tc.homeWall.remove(w);
 			return true;
 		}
 		return false;
 	}
 
-	public boolean hitWall(MetalWall w) { // ×Óµ¯´òµ½½ğÊôÇ½ÉÏ
+	public boolean hitWall(MetalWall w) { // å­å¼¹æ‰“åˆ°é‡‘å±å¢™ä¸Š
 		if (this.live && this.getRect().intersects(w.getRect())) {
 			this.live = false;
-			//this.tc.metalWall.remove(w); //×Óµ¯²»ÄÜ´©Ô½½ğÊôÇ½
+			//this.tc.metalWall.remove(w); //å­å¼¹ä¸èƒ½ç©¿è¶Šé‡‘å±å¢™
 			return true;
 		}
 		return false;
 	}
 
-	public boolean hitHome() { // µ±×Óµ¯´òµ½¼ÒÊ±
+	public boolean hitHome() { // å½“å­å¼¹æ‰“åˆ°å®¶æ—¶
 		if (this.live && this.getRect().intersects(tc.home.getRect())) {
 			this.live = false;
-			this.tc.home.setLive(false); // µ±¼Ò½ÓÊÜÒ»Ç¹Ê±¾ÍËÀÍö
+			this.tc.home.setLive(false); // å½“å®¶æ¥å—ä¸€æªæ—¶å°±æ­»äº¡
 			return true;
 		}
 		return false;
