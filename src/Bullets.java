@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 // wei keyi o in github
+//wei ky o in pc in tushanchen in bullet.java
 public class Bullets {
 	public static  int speedX = 10;
 	public static  int speedY = 10; // 子弹的全局静态速度
